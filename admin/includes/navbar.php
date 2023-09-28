@@ -11,11 +11,38 @@
 
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
 
-      <div class="input-group">
+      <!-- <div class="input-group">
         <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
           aria-describedby="btnNavbarSearch" />
         <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+      </div> -->
+
+      <?php
+include("admin/config/dbcon.php");
+
+// Query to count rows in your table
+$sql = "SELECT COUNT(*) as row_count FROM approval"; // Change "your_table" to your actual table name
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Fetch the count
+    $row = $result->fetch_assoc();
+    $rowCount = $row["row_count"];
+    
+    // Close the database connection
+    $conn->close();
+} else {
+    echo "No records found";
+    // Close the database connection
+    $conn->close();
+}
+?>
+
+      <div class="notification-bell">
+        <i class="fa fa-bell"></i>
+        <span class="nbadge badge-light"> <?php echo $rowCount; ?></span>
       </div>
+
 
     </form>
 
