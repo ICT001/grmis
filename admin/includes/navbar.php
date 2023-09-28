@@ -38,10 +38,21 @@ if ($result->num_rows > 0) {
 }
 ?>
 
-      <div class="notification-bell">
+      <!-- <div class="notification-bell">
         <i class="fa fa-bell"></i>
         <span class="nbadge badge-light"> <?php echo $rowCount; ?></span>
-      </div>
+        <span class="sr-only">unread messages</span>
+      </div> -->
+      <!-- <button type="button" class="btn btn-primary">
+  Profile <span class="badge badge-light"> <?php echo $rowCount; ?></span>
+  <span class="sr-only">unread messages</span>
+</button> -->
+
+<a href="#" class="notification">
+  <span>Inbox</span>
+  <span class="badge">3</span>
+</a>
+
 
 
     </form>
